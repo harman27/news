@@ -1,6 +1,5 @@
  <?php 
  require 'db.php';
- echo $_SESSION['roll'];
  if(isset($_POST['submit'])){
  	$category= $_POST['category'];
  	$title= $_POST['title'];
@@ -27,7 +26,7 @@
   </head>
   <body>
   	<form action="" method="post">
-  		<select name="category" id="">
+  		<select name="category[]" multiple="multiple" id="">
   		<?php $q= mysql_query("select * from category");
   		while($r= mysql_fetch_assoc($q)){
   			echo '<option value="'.$r['id'].'">'.$r['name'].'</option>';
